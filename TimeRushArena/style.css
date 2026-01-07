@@ -1,0 +1,162 @@
+/* ================= ROOT ================= */
+:root {
+  --bg-dark: #020617;
+  --bg-card: #0f172a;
+  --bg-option: #1e293b;
+  --accent: #0b76f6;
+  --accent-hover: #095bd4;
+  --text-muted: #9aa7bd;
+}
+
+/* ================= GLOBAL ================= */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #0b1220, var(--bg-dark));
+  color: #fff;
+}
+
+.app {
+  max-width: 420px;
+  margin: auto;
+  padding: 25px;
+}
+
+/* ================= SCREEN TRANSITION ================= */
+.screen {
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= TEXT ================= */
+h1 {
+  margin-bottom: 5px;
+}
+
+p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ================= INPUT ================= */
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+/* ================= DROPDOWNS ================= */
+select {
+  width: 95%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  background: var(--bg-card);
+  color: #ffffff;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  width: 100%;
+  padding: 12px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+  transform: scale(1.02);
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================= GAME CARD ================= */
+.card {
+  background: var(--bg-card);
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.55);
+}
+
+/* ================= QUESTION ================= */
+#question p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* ================= OPTIONS ================= */
+#question button {
+  width: 100%;
+  background: var(--bg-option);
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+#question button:hover {
+  background: #334155;
+}
+
+/* ================= LEADERBOARD ================= */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: var(--bg-card);
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .app {
+    padding: 18px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

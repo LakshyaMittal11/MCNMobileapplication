@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TimeRush Arena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Login -->
+  <div class="screen active" id="loginScreen">
+    <h1>⏱ TimeRush Arena</h1>
+    <p>Play. Earn. Grow.</p>
+    <input type="text" id="username" placeholder="Enter your name"/>
+    <button onclick="startApp()">Enter</button>
+  </div>
+
+  <!-- Home -->
+  <div class="screen" id="homeScreen">
+    <h2>Welcome, <span id="userName"></span></h2>
+
+    <!-- Category Selection -->
+    <select id="category">
+      <option value="9">General Knowledge</option>
+      <option value="18">Computer Science</option>
+      <option value="19">Mathematics</option>
+    </select>
+
+    <!-- Difficulty Selection -->
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <button id="playBtn" onclick="startGame()">Enter Arena</button>
+  </div>
+
+  <!-- Game -->
+  <div class="screen" id="gameScreen">
+    <div class="card">
+      <h3>⏳ Time Left: <span id="timer">60</span>s</h3>
+      <div id="question">Loading questions...</div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="screen" id="resultScreen">
+    <h2>🎉 Session Completed</h2>
+    <p id="resultText"></p>
+    <button onclick="showLeaderboard()">View Leaderboard</button>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="screen" id="leaderboardScreen">
+    <h2>🏆 Leaderboard</h2>
+    <ul id="leaderboardList"></ul>
+    <button onclick="restart()">Exit</button>
+  </div>
+
+</div>
+
+<!-- defer is IMPORTANT -->
+<script src="script.js" defer></script>
+</body>
+</html>
