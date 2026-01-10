@@ -98,6 +98,23 @@ select {
   font-size: 15px;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
+
+  /* remove default OS style */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* dropdown options background */
+select option {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+/* selected option */
+select option:checked {
+  background-color: #4f46e5;
+  color: #ffffff;
 }
 
 /* ================= BUTTONS ================= */
