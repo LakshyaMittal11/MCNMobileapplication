@@ -1,32 +1,38 @@
 /* ================= ROOT ================= */
 :root {
   --bg-dark: #020617;
-  --bg-card: #0f172a;
-  --bg-option: #1e293b;
-  --accent: #0b76f6;
-  --accent-hover: #095bd4;
-  --text-muted: #9aa7bd;
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --bg-option: rgba(255, 255, 255, 0.12);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --text-muted: #cbd5e1;
+  --glass-border: rgba(255, 255, 255, 0.15);
 }
 
 /* ================= GLOBAL ================= */
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #0b1220, var(--bg-dark));
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg-dark));
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* ================= APP ================= */
 .app {
+  width: 100%;
   max-width: 420px;
-  margin: auto;
-  padding: 25px;
+  padding: 26px;
 }
 
-/* ================= SCREEN TRANSITION ================= */
+/* ================= SCREEN ================= */
 .screen {
   display: none;
   text-align: center;
-  animation: fadeIn 0.35s ease-in-out;
+  animation: fadeIn 0.45s ease;
 }
 
 .screen.active {
@@ -36,7 +42,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -46,20 +52,37 @@ body {
 
 /* ================= TEXT ================= */
 h1 {
-  margin-bottom: 5px;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 p {
   color: var(--text-muted);
   font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ================= GLASS CARD ================= */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
 }
 
 /* ================= INPUT ================= */
 input {
   width: 90%;
-  padding: 12px;
-  margin: 15px 0;
-  border-radius: 8px;
+  padding: 14px;
+  margin: 18px 0;
+  border-radius: 12px;
   border: none;
   outline: none;
   font-size: 15px;
@@ -67,67 +90,70 @@ input {
 
 /* ================= DROPDOWNS ================= */
 select {
-  width: 95%;
-  padding: 12px;
+  width: 100%;
+  padding: 14px;
   margin: 10px 0;
-  border-radius: 8px;
+  border-radius: 12px;
   border: none;
   font-size: 15px;
-  background: var(--bg-card);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 /* ================= BUTTONS ================= */
 button {
   width: 100%;
-  padding: 12px;
-  background: var(--accent);
+  padding: 14px;
+  margin-top: 14px;
+  border-radius: 14px;
   border: none;
-  border-radius: 10px;
-  color: white;
+  background: linear-gradient(135deg, var(--accent), #6366f1);
+  color: #fff;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 12px;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
-  background: var(--accent-hover);
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.5);
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 button:disabled {
   background: gray;
   cursor: not-allowed;
-  transform: none;
+  box-shadow: none;
 }
 
-/* ================= GAME CARD ================= */
-.card {
-  background: var(--bg-card);
-  padding: 22px;
-  border-radius: 16px;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.55);
+/* ================= TIMER ================= */
+#timer {
+  font-size: 22px;
+  font-weight: bold;
+  color: #facc15;
 }
 
 /* ================= QUESTION ================= */
 #question p {
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 /* ================= OPTIONS ================= */
 #question button {
-  width: 100%;
   background: var(--bg-option);
   margin: 8px 0;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 14px;
+  border-radius: 12px;
   font-size: 14px;
 }
 
 #question button:hover {
-  background: #334155;
+  background: rgba(255, 255, 255, 0.22);
 }
 
 /* ================= LEADERBOARD ================= */
@@ -137,23 +163,23 @@ ul {
 }
 
 li {
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.1);
   margin: 8px 0;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 480px) {
   .app {
-    padding: 18px;
+    padding: 20px;
   }
 
-  button {
-    font-size: 15px;
+  h1 {
+    font-size: 24px;
   }
 
   h2 {

@@ -3,7 +3,8 @@ import fetch from "node-fetch";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -21,8 +22,8 @@ let leaderboard = [];
 /* 🔹 Fetch Questions (Proxy API) */
 app.get("/api/questions", async (req, res) => {
   const { amount = 5, category, difficulty } = req.query;
-
-  let url = `https://opentdb.com/api.php?amount=${amount}&type=multiple`;
+  const apiUrl = process.env.QUESTION_API_URL;
+  let url = `${apiUrl}?amount=${amount}&type=multiple`;
   if (category) url += `&category=${category}`;
   if (difficulty) url += `&difficulty=${difficulty}`;
 
